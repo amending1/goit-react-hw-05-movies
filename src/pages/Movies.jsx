@@ -3,7 +3,7 @@ import css from './movies.module.css';
 
 function Movies() {
 const [searchQuery, setSearchQuery] = useState('');
-const [searchResults, setSearchResults] = useState([]);
+const [searchResults] = useState([]);
 
     const handleSearch = async () => {
         try {
