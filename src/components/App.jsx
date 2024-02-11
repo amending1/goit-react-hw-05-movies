@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import css from '../pages/movies.module.css';
 import {
   BrowserRouter,
@@ -7,11 +7,13 @@ import {
   NavLink,
   Navigate,
 } from 'react-router-dom';
-import Home from '../pages/Home.jsx';
-import Cast from '../pages/Cast.jsx';
-import MovieDetails from '../pages/MovieDetails.jsx';
-import Movies from '../pages/Movies.jsx';
-import Reviews from '../pages/Reviews.jsx';
+
+const Home = lazy(() => import('../pages/Home.jsx'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails.jsx'));
+const Movies = lazy(() => import('../pages/Movies.jsx'));
+const Reviews = lazy(() => import('../pages/Reviews.jsx'));
+const Cast = lazy(() => import('../pages/Cast.jsx'));
+const Loader = lazy(() => import('../pages/Loader.jsx'));
 
 function App() {
   return (
@@ -27,14 +29,16 @@ function App() {
             </li>
           </ul>
         </nav>
+        <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path='/movies/:movieId' element={<MovieDetails />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />} />
           <Route path='/movies/:movieId/cast' element={<Cast/>} />
           <Route path='/movies/:movieId/reviews' element={<Reviews />} />
-          <Route path='*' element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        </Suspense>
       </div>
     </BrowserRouter>
   );
