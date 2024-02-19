@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Routes, Route, Link } from 'react-router-dom';
-import Cast from './Cast';
-import Reviews from './Reviews';
+import { useParams, Link } from 'react-router-dom';
 import css from './movies.module.css';
 import PropTypes from 'prop-types'; 
 
@@ -53,21 +51,15 @@ function MovieDetails() {
             <h3 className={css['page-header']}>Additional information</h3>
             <ul>
               <li>
-                <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+                <Link to={`cast`}>Cast</Link>
               </li>
               <li>
-                <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+                <Link to={`reviews`}>Reviews</Link>
               </li>
             </ul>
           </nav>{' '}
         </div>
       </div>
-
-      <Routes>
-        <Route path="cast" element={<Cast />} />
-        {/* path="reviews" mówi, że ścieżka URL musi kończyć się na /reviews, aby wyrenderować komponent Reviews. */}
-        <Route path="reviews" element={<Reviews />} />
-      </Routes>
     </div>
   );
 }

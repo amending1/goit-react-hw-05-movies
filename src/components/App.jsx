@@ -6,6 +6,7 @@ import {
   Route,
   NavLink,
   Navigate,
+  Outlet
 } from 'react-router-dom';
 
 const Home = lazy(() => import('../pages/Home.jsx'));
@@ -17,7 +18,7 @@ const Loader = lazy(() => import('../pages/Loader.jsx'));
 
 function App() {
   return (
-    <BrowserRouter basename="/https://github.com/amending1/goit-react-hw-05-movies/">
+    <BrowserRouter basename="/goit-react-hw-05-movies/">
       <div className={css.container}>
         <nav className={css.navbar}>
           <ul>
@@ -30,6 +31,7 @@ function App() {
           </ul>
         </nav>
         <Suspense fallback={<Loader />}>
+        <Outlet />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
