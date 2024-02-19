@@ -17,7 +17,7 @@ const Loader = lazy(() => import('../pages/Loader.jsx'));
 
 function App() {
   return (
-    <BrowserRouter basename="/goit-react-hw-05-movies/">
+    <BrowserRouter basename="/https://github.com/amending1/goit-react-hw-05-movies/">
       <div className={css.container}>
         <nav className={css.navbar}>
           <ul>
