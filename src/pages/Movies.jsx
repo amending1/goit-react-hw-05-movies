@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import css from './movies.module.css';
 
 function Movies() {
@@ -36,7 +37,7 @@ function Movies() {
               alt={movie.title}
               className={css['movie-image']}
             />{' '}
-            <a href={`/movies/${movie.id}`}>{movie.title}</a>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>
