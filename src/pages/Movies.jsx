@@ -20,6 +20,7 @@ function Movies() {
   return (
     <div>
       <h2 className={css['page-header']}>Search Movie</h2>
+      <form onSubmit={handleSearch}>
       <input
         type="text"
         value={searchQuery}
@@ -29,6 +30,7 @@ function Movies() {
       <button onClick={handleSearch} className={css['search-button']}>
         Search
       </button>
+      </form>
       <ul className={css['movie-list']}>
         {searchResults.map(movie => (
           <li key={movie.id} className={css['movie-item']}>
