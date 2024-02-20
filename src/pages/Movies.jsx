@@ -6,7 +6,8 @@ function Movies() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async () => {
+  const handleSearch = async (event) => {
+    event.preventDefault();
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&api_key=55b41f82a3d9f463669460bf70677f68`
